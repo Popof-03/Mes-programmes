@@ -1,0 +1,3 @@
+﻿  main.cpp
+C:\Users\Gaétan\Documents\PROGRAMMES\C++\carte d identité\carte d identité\main.cpp(53,20): warning C4244: 'initialisation' : conversion de 'unsigned __int64' en 'double', perte possible de données
+  carte d identité.vcxproj -> C:\Users\Gaétan\Documents\PROGRAMMES\C++\carte d identité\x64\Debug\carte d identité.exe
