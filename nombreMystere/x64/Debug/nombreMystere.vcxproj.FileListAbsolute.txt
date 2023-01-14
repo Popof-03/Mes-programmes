@@ -1,0 +1,3 @@
+C:\c++\solutions\nombreMystere\x64\Debug\nombreMystere.exe
+C:\c++ et Julia\c++\solutions\nombreMystere\x64\Debug\nombreMystere.exe
+C:\prog\c++\solutions\nombreMystere\x64\Debug\nombreMystere.exe
