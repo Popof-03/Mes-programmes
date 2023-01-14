@@ -1,0 +1,3 @@
+C:\Users\Gaétan\Documents\PROGRAMMES\mot mystere jeu\x64\Debug\mot mystere jeu.exe
+C:\c++\solutions\mot mystere jeu\x64\Debug\mot mystere jeu.exe
+C:\prog\c++\solutions\mot mystere jeu\x64\Debug\mot mystere jeu.exe

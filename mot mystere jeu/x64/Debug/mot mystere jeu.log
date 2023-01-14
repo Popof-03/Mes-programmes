@@ -1,0 +1,7 @@
+﻿  mot mystere jeu.cpp
+C:\prog\c++\solutions\mot mystere jeu\mot mystere jeu.cpp(29,22): warning C4244: 'initializing': conversion from '_Rep' to 'unsigned int', possible loss of data
+          with
+          [
+              _Rep=std::chrono::system_clock::rep
+          ]
+  mot mystere jeu.vcxproj -> C:\prog\c++\solutions\mot mystere jeu\x64\Debug\mot mystere jeu.exe
