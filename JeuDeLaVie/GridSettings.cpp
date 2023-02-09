@@ -18,7 +18,7 @@ void GridSettings::fileLoader(QString fileNameToLoad)
 				std::ios_base::openmode mode; mode = std::ios_base::in;
 				file.open(forOpen.std::string::c_str(), mode);
 				std::string line;
-				
+
 			}
 		}
 	}
@@ -58,9 +58,9 @@ GridSettings::GridSettings()
 	scene->addWidget(TextBoxL);
 	wdg = new Grille(2, 2);
 }
-char GridSettings::min(char o, char b, char $,std::string line, int index)
+char GridSettings::min(char o, char b, char $, std::string line, int index)
 {
-	if (line.find($, index) < line.find(b, index) && line.find($, index) < line.find(o, index)&& line.find($, index) < line.find('!', index))//$prems?
+	if (line.find($, index) < line.find(b, index) && line.find($, index) < line.find(o, index) && line.find($, index) < line.find('!', index))//$prems?
 	{
 		return '$';
 	}
@@ -72,7 +72,7 @@ char GridSettings::min(char o, char b, char $,std::string line, int index)
 	{
 		return'o';
 	}
-	else if (line.find('!', index) < line.find($, index) && line.find('!', index) < line.find(b, index)&& line.find('!', index) < line.find(o, index))//fin?
+	else if (line.find('!', index) < line.find($, index) && line.find('!', index) < line.find(b, index) && line.find('!', index) < line.find(o, index))//fin?
 	{
 		return '!';
 	}
@@ -87,47 +87,42 @@ int GridSettings::getConfigGridC()
 }
 void GridSettings::setAfter(long long int nb, char BorO)
 {
-	
-	
-		if (BorO == 'o')
+
+
+	if (BorO == 'o')
+	{
+		for (size_t i = 0; i < nb; i++)
 		{
-			for (size_t i = 0; i < nb; i++)
-			{
-				this->wdg->getAfterVB().push_back(true);
-				debug += 1;
-			}
-			checkeol += nb;
-			check += nb;
+			this->wdg->getAfterVB().push_back(true);
+			debug += 1;
 		}
-		else if (BorO == 'b')
+		checkeol += nb;
+		check += nb;
+	}
+	else if (BorO == 'b')
+	{
+		for (size_t i = 0; i < nb; i++)
 		{
-			for (size_t i = 0; i < nb; i++)
-			{
-				this->wdg->getAfterVB().push_back(false);
-				debug += 1;
-			}
-			checkeol += nb;
-			check += nb;
+			this->wdg->getAfterVB().push_back(false);
+			debug += 1;
 		}
-		else if (BorO == '$')
+		checkeol += nb;
+		check += nb;
+	}
+	else if (BorO == '$')
+	{
+		if (nb!=1)
 		{
-			
-			if (numC==-1 && numL==-1)
+			if (numC==-1 && numL == -1)
 			{
-				int length = configGridC - checkeol;
-				for (size_t i = 0; i < length; i++)
+				for (int i=0;i<configGridC;i++) 
 				{
 					this->wdg->getAfterVB().push_back(false);
 				}
-				check += length;
-				
-				checkeol = 0;
-
 			}
 			else
 			{
-				
-				while (checkeol!= configGridC+floor((numC - configGridC) / 2))//comble jusqu a la fin de la lim pattern, regarde si checkeol possede deja le floor(il a deja) COLOONNE
+				while (checkeol != configGridC + floor((numC - configGridC) / 2))//comble jusqu a la fin de la lim pattern, regarde si checkeol possede deja le floor(il a deja) COLOONNE
 				{
 					this->wdg->getAfterVB().push_back(false);
 					checkeol += 1;
@@ -140,40 +135,80 @@ void GridSettings::setAfter(long long int nb, char BorO)
 					check += 1;
 				}
 				checkeol = 0;
-				while (checkeol!= floor((numC - configGridC) / 2)-1)
+				for (size_t i = 0; i < numC; i++)
+				{
+					this->wdg->getAfterVB().push_back(false);
+				}
+				while (checkeol != floor((numC - configGridC) / 2) - 1)
 				{
 					this->wdg->getAfterVB().push_back(false);
 					checkeol += 1;
 					check += 1;
 				}
-			
-
-				
-
-
-
 			}
-			
 		}
-				
-
-				
-				
-		
-		else if (BorO=='!')
+		else if (numC == -1 && numL == -1)
 		{
-				while (check != numC*numL)
-				{
-					this->wdg->getAfterVB().push_back(false);
-					check += 1;
-				}
-	
+			int length = configGridC - checkeol;
+			for (size_t i = 0; i < length; i++)
+			{
+				this->wdg->getAfterVB().push_back(false);
+			}
+			check += length;
+
+			checkeol = 0;
+
 		}
-	
+		else
+		{
+
+			while (checkeol != configGridC + floor((numC - configGridC) / 2))//comble jusqu a la fin de la lim pattern, regarde si checkeol possede deja le floor(il a deja) COLOONNE
+			{
+				this->wdg->getAfterVB().push_back(false);
+				checkeol += 1;
+				check += 1;
+			}
+			while (checkeol != numC)//comble jusqu a la fin de la grille COLOONNE, // il faut check s il est inferieur à!: check < (numL*numC)-((numL-configGridl)/2)
+			{
+				this->wdg->getAfterVB().push_back(false);
+				checkeol += 1;
+				check += 1;
+			}
+			checkeol = 0;
+			while (checkeol != floor((numC - configGridC) / 2) - 1)
+			{
+				this->wdg->getAfterVB().push_back(false);
+				checkeol += 1;
+				check += 1;
+			}
+
+
+
+
+
+
+		}
+
+	}
+
+
+
+
+
+	else if (BorO == '!')
+	{
+		while (check != numC * numL)
+		{
+			this->wdg->getAfterVB().push_back(false);
+			check += 1;
+		}
+
+	}
+
 }
 void GridSettings::fillAterVB()
 {
-	if (this->wdg->getAfterVB().size()<(configGridC*configGridL))
+	if (this->wdg->getAfterVB().size() < (configGridC * configGridL))
 	{
 		for (int i = 0; this->wdg->getAfterVB().size() < (configGridC * configGridL); i++)
 		{
@@ -211,7 +246,7 @@ void GridSettings::readFile()
 		std::string accurateLine = line;
 		if (numC != -1 && numL != -1)//decalage du debut 
 		{
-			while (check!=floor((numL-configGridL)/2)*numC)
+			while (check != floor((numL - configGridL) / 2) * numC)
 			{
 				this->wdg->getAfterVB().push_back(false);
 				check += 1;
@@ -267,11 +302,11 @@ void GridSettings::readFile()
 			{
 				if (std::isdigit(line[currentIndex]) == 0)//si lettre pas translate en cghiffre
 				{
-				
-					
+
+
 					setAfter(1, '$');
 					currentIndex += 1;
-					
+
 
 
 				}
@@ -285,22 +320,22 @@ void GridSettings::readFile()
 			}
 
 		}
-		
+
 	}
 }
 
 
 void GridSettings::goodConstruction()
 {
-	if (numC != -1 && numL != -1 && verificationFileLoader==false)//check si box a changé 
+	if (numC != -1 && numL != -1 && verificationFileLoader == false)//check si box a changé 
 	{
-		 Grille* wdig = new Grille(numC, numL); runOnce = true;
-		 wdg->assignV2(wdig);
-		 wdig->check();
-		 wdig->show();
-		 hide();
+		Grille* wdig = new Grille(numC, numL); runOnce = true;
+		wdg->assignV2(wdig);
+		wdig->check();
+		wdig->show();
+		hide();
 	}
-	else if (verificationFileLoader == true && numC !=-1  && numL !=-1 )
+	else if (verificationFileLoader == true && numC != -1 && numL != -1)
 	{
 		Grille* wdig = new Grille(numC, numL); runOnce = true;
 		readFile();
@@ -311,7 +346,7 @@ void GridSettings::goodConstruction()
 	}
 	else if (verificationFileLoader)
 	{
-		
+
 		readFile();
 		Grille* wdig = new Grille(configGridC, configGridL); runOnce = true;
 		this->fillAterVB();
@@ -325,7 +360,7 @@ void GridSettings::goodConstruction()
 void GridSettings::initL()
 {
 	QString temp;
-	temp=TextBoxL->displayText();
+	temp = TextBoxL->displayText();
 	numL = temp.toInt();
 }
 
@@ -335,7 +370,6 @@ void GridSettings::initC()
 	temp = TextBoxC->displayText();
 	numC = temp.toInt();
 }
-
 
 
 
