@@ -30,8 +30,10 @@ public:
 public slots:
 	void fileLoader(QString FileNameToLoad);
 	void goodConstruction();
+	void initL();
+	void initC();
 private:
-	fs::path pathe = "\\prog\\c++\\solutionsGUI\\JeuDeLaVie\\pattern\\";
+	fs::path pathe = "\\prog\\c++\\solutionsGUI\\JeuDeLaVie\\";
 	std::vector<size_t> hashValue;
 	QVBoxLayout* leGrand = new QVBoxLayout;
 	QHBoxLayout* leHaut = new QHBoxLayout;
@@ -58,5 +60,6 @@ private:
 	std::string data;
 	std::ifstream file;
 	int debug=0;
-	
+	int checkeol = 0;//pour le pattern
+	int check = 0;//pour la ligne
 };
