@@ -1,0 +1,2 @@
+C:\prog\c++\solutions GUI\JeuDeLaVie\x64\Release\JeuDeLaVie.exe
+C:\prog\c++\solutionsGUI\JeuDeLaVie\x64\Release\JeuDeLaVie.exe

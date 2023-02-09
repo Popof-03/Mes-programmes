@@ -1,0 +1,10 @@
+﻿  Reading Qt configuration (C:/prog/c++/librairies/6.2.3/msvc2019_64/bin/qmake)
+  GridSettings.cpp
+  Grille.cpp
+  main.cpp
+C:\prog\c++\solutionsGUI\JeuDeLaVie\Grille.cpp(1,1): warning C4828: The file contains a character starting at offset 0x10e1 that is illegal in the current source character set (codepage 65001).
+C:\prog\c++\solutionsGUI\JeuDeLaVie\GridSettings.cpp(1,1): warning C4828: The file contains a character starting at offset 0x66 that is illegal in the current source character set (codepage 65001).
+C:\prog\c++\solutionsGUI\JeuDeLaVie\GridSettings.cpp(1,1): warning C4828: The file contains a character starting at offset 0x1892 that is illegal in the current source character set (codepage 65001).
+  moc_GridSettings.cpp
+  moc_Grille.cpp
+  JeuDeLaVie.vcxproj -> C:\prog\c++\solutionsGUI\JeuDeLaVie\x64\Release\JeuDeLaVie.exe
