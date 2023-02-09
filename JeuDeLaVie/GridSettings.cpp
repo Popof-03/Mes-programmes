@@ -122,7 +122,8 @@ void GridSettings::setAfter(long long int nb, char BorO)
 			}
 			else
 			{
-				while (checkeol != configGridC + floor((numC - configGridC) / 2))//comble jusqu a la fin de la lim pattern, regarde si checkeol possede deja le floor(il a deja) COLOONNE
+				for (int j = 0; j < nb-1;j++) 
+				{while (checkeol != configGridC + floor((numC - configGridC) / 2))//comble jusqu a la fin de la lim pattern, regarde si checkeol possede deja le floor(il a deja) COLOONNE
 				{
 					this->wdg->getAfterVB().push_back(false);
 					checkeol += 1;
@@ -145,6 +146,8 @@ void GridSettings::setAfter(long long int nb, char BorO)
 					checkeol += 1;
 					check += 1;
 				}
+				}
+				
 			}
 		}
 		else if (numC == -1 && numL == -1)
@@ -359,6 +362,17 @@ void GridSettings::goodConstruction()
 
 void GridSettings::initL()
 {
+	QString temp;
+	temp = TextBoxL->displayText();
+	numL = temp.toInt();
+}
+
+void GridSettings::initC()
+{
+	QString temp;
+	temp = TextBoxC->displayText();
+	numC = temp.toInt();
+}
 	QString temp;
 	temp = TextBoxL->displayText();
 	numL = temp.toInt();
